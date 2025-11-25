@@ -102,6 +102,27 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
         }}
       />
+        <Tabs.Screen
+        name="Reebok"
+        options={{
+          title: 'Reebok',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
+        <Tabs.Screen
+        name="fila"
+        options={{
+          title: 'fila',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
+        <Tabs.Screen
+        name="Asics"
+        options={{
+          title: 'Asics',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
          <Tabs.Screen
         name="login"
         options={{

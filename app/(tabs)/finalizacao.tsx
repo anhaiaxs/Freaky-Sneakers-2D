@@ -24,7 +24,10 @@ export default function ConfirmacaoScreen() {
       </ThemedText>
 
       {/* Botão voltar ao início */}
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/index")}>
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => router.replace("/")}
+      >
         <ThemedText style={styles.buttonText}>Voltar ao início</ThemedText>
       </TouchableOpacity>
 

@@ -1,14 +1,4 @@
-import { 
-  View, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet, 
-  KeyboardAvoidingView, 
-  Platform, 
-  ScrollView, 
-  Alert, 
-  Text 
-} from "react-native";
+import { View,  TextInput,  TouchableOpacity, StyleSheet, KeyboardAvoidingView,  Platform, ScrollView, Alert,  Text } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useRouter, useLocalSearchParams } from "expo-router";
@@ -30,7 +20,8 @@ export default function PagamentoScreen() {
         return;
       }
     }
-    // Navega para a página de finalização (nome do arquivo sem acento)
+
+    //  Navega para a página finalizada (arquivo finalizacao.tsx)
     router.push("/finalizacao");
   }
 
@@ -61,7 +52,7 @@ export default function PagamentoScreen() {
           </View>
 
           <ThemedText style={styles.title}>Pagamento</ThemedText>
-          <Text style={styles.label}>Produto: {produto ? produto : "Não informado"}</Text>
+          <Text style={styles.label}>Produto: {produto ? produto : "Air Force 1 branco"}</Text>
 
           <ThemedText style={styles.subtitle}>Escolha o método de pagamento</ThemedText>
 
@@ -155,13 +146,15 @@ export default function PagamentoScreen() {
           {selectedPayment === "pix" && (
             <View style={styles.pixContainer}>
               <Text style={styles.pixLabel}>Use a chave PIX abaixo:</Text>
-              <Text style={styles.pixKey}>pagamento-pix-fake-123@exemplo.com</Text>
+              <Text style={styles.pixKey}>freakysneakers@gmail.com</Text>
             </View>
           )}
 
           {selectedPayment === "boleto" && (
             <View style={styles.boletoContainer}>
-              <Text style={styles.boletoText}>Após finalizar, o boleto será gerado e enviado para seu e-mail.</Text>
+              <Text style={styles.boletoText}>
+                Após finalizar, o boleto será gerado e enviado para seu e-mail.
+              </Text>
             </View>
           )}
 
