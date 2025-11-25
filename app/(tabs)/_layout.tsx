@@ -130,6 +130,27 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <MaterialIcons name="policy" size={18} color="gray" />,
         }}
       />
+              <Tabs.Screen
+        name="Vans"
+        options={{
+          title: 'Vans',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
+                    <Tabs.Screen
+        name="fila"
+        options={{
+          title: 'Fila',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
+                          <Tabs.Screen
+        name="Asics"
+        options={{
+          title: 'Asics',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="shoe-sneaker" size={18} color="gray" />,
+        }}
+      />
     </Tabs>
   );
 }
