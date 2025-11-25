@@ -1,3 +1,4 @@
+// Importações de componentes e hooks necessários para a tela
 import { Image } from 'expo-image';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
@@ -5,30 +6,39 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';
 
+// Componente principal da tela inicial
 export default function HomeScreen() {
+  // Estado para controlar qual imagem está ativa no carrossel
   const [currentIndex, setCurrentIndex] = useState(0);
+  // Hook de navegação do Expo Router
   const router = useRouter();
 
+  // Lista de imagens estáticas para o carrossel
   const images = [
-    require('@/assets/images/download.png'),
-    require('@/assets/images/download (1).png'),
-    require('@/assets/images/download (2).png'),
-    require('@/assets/images/download (3).png'),
-    require('@/assets/images/download (4).png'),
+    require('@/assets/images/1.jpg'),
+    require('@/assets/images/2.jpg'),
+    require('@/assets/images/3.jpg'),
+    require('@/assets/images/4.jpg'),
+    require('@/assets/images/5.jpg'),
   ];
 
+  // Função para ir à próxima imagem (com loop circular)
   const nextImage = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  // Função para voltar à imagem anterior (com loop circular)
   const prevImage = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  // Renderização do layout da tela
   return (
+    // ScrollView com efeito parallax no cabeçalho
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
+        // Logo fixo no topo da tela
         <View style={styles.logoContainer}>
           <Image
             source={require('@/assets/images/freaky.png')}
@@ -37,7 +47,9 @@ export default function HomeScreen() {
         </View>
       }
     >
+      {/* Container principal com fundo temático */}
       <ThemedView style={styles.heroContainer}>
+        {/* Carrossel de imagens com botões de navegação */}
         <View style={styles.carouselContainer}>
           <TouchableOpacity onPress={prevImage} style={styles.arrowButtonLeft}>
             <Text style={styles.arrowText}>‹</Text>
@@ -55,9 +67,10 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
+        {/* Texto descritivo abaixo do carrossel */}
         <Text style={styles.tagline}>Veja nossas categorias.</Text>
 
-        {/* Container com os dois botões lado a lado */}
+        {/* Linha com dois botões de ação lado a lado */}
         <View style={styles.buttonRow}>
           <TouchableOpacity 
             style={styles.ctaButton}
@@ -78,6 +91,7 @@ export default function HomeScreen() {
   );
 }
 
+// Definição de todos os estilos usados no componente
 const styles = StyleSheet.create({
   logoContainer: {
     flex: 1,
@@ -96,7 +110,7 @@ const styles = StyleSheet.create({
   heroContainer: {
     padding: 20,
     alignItems: 'center',
-    backgroundColor: '#7D26CD',
+    backgroundColor: '#2e1b3fff',
     marginBottom: 20,
   },
   carouselContainer: {
@@ -160,7 +174,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   loginButton: {
-    // opcional: você pode diferenciar a cor, mas mantive igual conforme solicitado
   },
   ctaText: {
     color: '#fff',

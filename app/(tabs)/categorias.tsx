@@ -1,16 +1,21 @@
+// Importações dos componentes e hooks necessários
 import { Image } from 'expo-image';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';
 
+// Componente principal da tela de categorias
 export default function HomeScreen() {
+  // Hook para navegação entre telas
   const router = useRouter();
 
   return (
+    // ScrollView com efeito parallax no cabeçalho
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
+        // Logo centralizado no topo com fundo roxo
         <View style={styles.logoContainer}>
           <Image 
             source={require('@/assets/images/freaky.png')}
@@ -19,9 +24,10 @@ export default function HomeScreen() {
         </View>
       }
     >
+      {/* Botão "Voltar" posicionado no início do conteúdo */}
       <View style={styles.backCard}>
         <TouchableOpacity
-          style={styles.categoryImage}
+          style={styles.backButton}
           onPress={() => router.push('/')}
         >
           <Text style={styles.backIcon}>Voltar</Text>
@@ -29,11 +35,14 @@ export default function HomeScreen() {
        
       </View>
 
+      {/* Seção de destaque com o título "Nossas categorias" */}
       <ThemedView style={styles.heroContainer}>
         <Text style={styles.slogan}>Nossas categorias</Text>
       </ThemedView>
 
+      {/* ScrollView horizontal para exibir as categorias lado a lado */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
+        {/* Lista estática de marcas/categorias com imagem e botão */}
         {[
           { name: 'Nike', img: require('@/assets/images/download (3).png') },
           { name: 'NewBalance', img: require('@/assets/images/download (2).png') },
@@ -46,6 +55,7 @@ export default function HomeScreen() {
           { name: 'Vans', img: require('@/assets/images/download (8).png') },
           { name: 'Fila', img: require('@/assets/images/download (9).png') },
         ].map((category, index) => (
+          // Cada categoria é renderizada como um cartão com imagem e botão
           <View key={index} style={styles.categoryCard}>
             <Image
               source={category.img}
@@ -65,6 +75,7 @@ export default function HomeScreen() {
   );
 }
 
+// Definição dos estilos usados em toda a tela
 const styles = StyleSheet.create({
   logoContainer: {
     flex: 1,
@@ -112,6 +123,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+ 
   categoryButton: {
     backgroundColor: '#7D26CD',
     paddingHorizontal: 12,
@@ -126,7 +138,14 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
-
+ backButton: {
+    backgroundColor: '#7D26CD',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+    margin: 16,
+  },
   backCard: {
     width: 80,
     alignItems: 'center',
@@ -136,6 +155,6 @@ const styles = StyleSheet.create({
   backIcon: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#ffffffff',
   },
 });
